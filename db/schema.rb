@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20171014154911) do
   enable_extension "plpgsql"
 
   create_table "lots", force: :cascade do |t|
-    t.integer  "lot_number"
+    t.string   "lot_number"
     t.string   "picture_url"
     t.text     "rcp_description"
     t.string   "laboratory"
@@ -26,16 +26,16 @@ ActiveRecord::Schema.define(version: 20171014154911) do
   end
 
   create_table "tests", force: :cascade do |t|
-    t.integer  "codenumber"
+    t.string   "codenumber"
     t.string   "country"
     t.string   "image_url"
-    t.string   "image_type"
+    t.string   "test_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "truemedicines", force: :cascade do |t|
-    t.integer  "codenumber"
+    t.string   "codenumber"
     t.string   "country_of_sale"
     t.date     "expiration_date"
     t.integer  "lot_id"

@@ -6,10 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-print "Destroying lots..."
-Lot.destroy_all
+
 print "Destroying true medicines..."
 Truemedicine.destroy_all
+print "Destroying lots..."
+Lot.destroy_all
 print "Destroying tests..."
 Test.destroy_all
 
@@ -23,16 +24,14 @@ lots = [
 <br> Posologie et mode d'administration <br> Chez l'adulte, la posologie usuelle est de 2 lyophilisats oraux, à prendre au moment de la crise, à renouveler en cas de spasmes importants.
 Les lyophilisats oraux sont à dissoudre dans un verre d'eau ou à laisser fondre sous la langue pour obtenir un effet rapide.
 Chez l'enfant : 1 lyophilisat 2 fois par 24 heures à dissoudre dans un verre d'eau.",
-    laboratory_name: "Teva"
+    laboratory: "Teva"
   },
   {
     name: 'Esoméprazole',
     lot_number: '5ZR0313',
     picture_url: 'https://posomed.fr/img/products/prod_45598-1-thumb.jpg',
-    rcp_description: "Indications thérapeutiques <br> Les comprimés d'ESOMEPRAZOLE ZENTIVA 20 mg sont indiqués dans:
-Reflux gastro-œsophagien (RGO) (Traitement de l'œsophagite érosive par reflux. Traitement d'entretien et prévention des récidives après cicatrisation d'une œsophagite par reflux gastro-œsophagien. Traitement symptomatique du reflux gastro-œsophagien (RGO).) En association à une antibiothérapie appropriée, éradication de Helicobacter pylori pour cicatrisation de l'ulcère duodénal en cas d'infection par Helicobacter pylori et prévention de la récidive de l'ulcère gastro-duodénal en cas d'infection par Helicobacter pylori."
-",
-    laboratory_name: "Sanofi"
+    rcp_description: "Indications thérapeutiques <br> Les comprimés d'ESOMEPRAZOLE ZENTIVA 20 mg sont indiqués dans: Reflux gastro-œsophagien (RGO) (Traitement de l'œsophagite érosive par reflux. Traitement d'entretien et prévention des récidives après cicatrisation d'une œsophagite par reflux gastro-œsophagien. Traitement symptomatique du reflux gastro-œsophagien (RGO).) En association à une antibiothérapie appropriée, éradication de Helicobacter pylori pour cicatrisation de l'ulcère duodénal en cas d'infection par Helicobacter pylori et prévention de la récidive de l'ulcère gastro-duodénal en cas d'infection par Helicobacter pylori.",
+    laboratory: "Sanofi"
   },
   {
     name: 'Paroxétine',
@@ -40,7 +39,7 @@ Reflux gastro-œsophagien (RGO) (Traitement de l'œsophagite érosive par reflux
     picture_url: 'https://posomed.fr/img/products/prod_50483-1-thumb.jpg',
     rcp_description: "Indications thérapeutiques <br> Traitement de : Episode dépressif majeur. Troubles Obsessionnels Compulsifs. Trouble Panique avec ou sans agoraphobie. Trouble Anxiété Sociale ou Phobie sociale.
 Trouble Anxiété Généralisée. Etat de stress post-traumatique.",
-    laboratory_name: "Rambaxy"
+    laboratory: "Rambaxy"
   }
 ]
 lots.each do |lot|
@@ -50,31 +49,29 @@ end
 puts "done"
 
 print "Seeding 3 truemedicines ..."
-medicines = [
-  {
+medicine1 = Truemedicine.new({
     codenumber: '010340094971775017160731105ZR0313',
     country_of_sale: 'Brazil',
     expiration_date: "blabla"
-  },
-  {
+  })
+medicine2 = Truemedicine.new({
     codenumber: '01034009309860801721030010G743',
     country_of_sale: 'France',
     expiration_date: "blabla"
-  },
-  {
+  })
+medicine3 = Truemedicine.new({
     codenumber: '01034009363923421717050010608',
     country_of_sale: 'Indonesia',
     expiration_date: "blabla"
-  }
-]
-medicines[1].lot_id = Lot.find_by_name('Spasfon')
-medicines[2].lot_id = Lot.find_by_name('Esoméprazole')
-medicines[3].lot_id = Lot.find_by_name('Paroxétine')
+  })
 
-medicines.each do |medicine|
-  new_medicine = Truemedicine.new(medicine)
-  new_medicine.save!
-end
+medicine1.lot = Lot.find_by_name('Spasfon')
+medicine2.lot = Lot.find_by_name('Esoméprazole')
+medicine3.lot = Lot.find_by_name('Paroxétine')
+medicine1.save
+medicine2.save
+medicine3.save
+
 puts "done"
 
 print "Seeding 3 tests ..."
@@ -83,17 +80,18 @@ tests = [
     codenumber: '010340094971775017160731105ZR0313',
     country: 'Brazil',
     image_url: "url",
-    image_type: "datamatrix"
+    test_type: "datamatrix"
   },
   {
     codenumber: '01034009309860801721030010G743',
     country: 'France',
     image_url: "url",
-    image_type: "codebar"
+    test_type: "codebar"
   },
   {
     codenumber: '01034009363923421717050010608',
-    country: 'Indonesia'
+    country: 'Indonesia',
+    test_type: "codenumber"
   }
 ]
 tests.each do |test|
