@@ -1,0 +1,17 @@
+.bubble-left {
+  background-color: #fff;
+  border: 1px solid #999999;
+  padding: 10px 15px;
+  border-radius: 10px;
+  // font-weight: lighter;
+  opacity: 0.8;
+  p {
+  color: #414141;
+
+  }
+}
+
+.bubble-left-block {
+  display: flex;
+  align-items: left;
+}
