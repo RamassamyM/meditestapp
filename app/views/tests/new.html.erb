@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="">
+    <%= simple_form_for @test, html: { class: 'form-inline'} do |f| %>
+      <%= f.input :codenumber, label: false, placeholder: "Enter 20 digits code", html: { class: 'codeform'} %>
+      <%= f.hidden_field :test_type, value: "codenumber" %>
+      <%= f.submit "Test", class: "btn btn-primary", :wrapper => :nested %>
+      <% end %>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<% case @result %>
+<% when "authentic" %>
+  <p>Assurez-vous que cette boîte n'a jamais été testée auparavant.</p>
+  <p>Votre médicament semble être authentique et provenir d'un vrai laboratoire</p>
+  <%= render 'codes/show', truemedicine: @truemedicine %>
+<% when "copy" %>
+  <p>Assurez-vous que cette boîte n'a jamais été testée auparavant.</p>
+<% when "fake" %>
+  <p>Assurez-vous que cette boîte n'a jamais été testée auparavant.</p>
+<% end %>
+
+

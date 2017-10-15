@@ -1,0 +1,14 @@
+<div class="bubble-content">
+  <div class="bubble-left-block">
+    <%= image_tag "doctor.png", class: "avatar" %>
+    <div class="bubble">
+      <p>Do you see a codebar on your medicine packaging ?</p>
+      <%= image_tag "codebar.png", class: "bubble-image" %>
+    </div>
+  </div>
+  <div class="bubble-right-block">
+    <%= link_to "No", number_path, class: "bubble bubble-button-no" %>
+    <%= link_to "Yes", new_test_path(:test => {:test_type => 'codebar'}), class: " bubble bubble-button-yes" %>
+    <%= image_tag "user.png", class: "avatar" %>
+  </div>
+</div>

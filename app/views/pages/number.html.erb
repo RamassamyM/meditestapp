@@ -1,0 +1,13 @@
+<div class="bubble-content">
+  <div class="bubble-left-block">
+    <%= image_tag "doctor.png", class: "avatar" %>
+    <div class="bubble">
+      <p>Do you see a 20 digits code on your medicine packaging ?</p>
+    </div>
+  </div>
+  <div class="bubble-right-block">
+    <%= link_to "No", fake_path, class: "bubble bubble-button-no" %>
+    <%= link_to "Yes", new_test_path(:test => {:test_type => 'codenumber'}), class: " bubble bubble-button-yes" %>
+    <%= image_tag "user.png", class: "avatar" %>
+  </div>
+</div>

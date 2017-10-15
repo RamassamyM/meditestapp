@@ -1,10 +1,16 @@
-<div class="bubble-left block">
-  <%= image_tag "logo.png", class: "avatar" %>
-  <div class="bubble-left">
-
-    <p>Do you see a datamix on your medicine packaging ?</p>
+<div class="bubble-content">
+  <div class="bubble-left-block">
+    <%= image_tag "doctor.png", class: "avatar" %>
+    <div class="bubble">
+      <p>Do you see a datamatrix on your medicine packaging ?</p>
+      <%= image_tag "datamatrix.jpg", class: "bubble-image" %>
+    </div>
+  </div>
+  <div class="bubble-right-block">
+    <%= link_to "No", codebar_path, class: "bubble bubble-button-no" %>
+    <%= link_to "Yes", new_test_path(:test => {:test_type => 'datamatrix'}), class: " bubble bubble-button-yes" %>
+    <%= image_tag "user.png", class: "avatar" %>
   </div>
 </div>
 
-<a href="#" class="btn-medium">Yes</a>
-<a href="#" class="btn-medium">No</a>
+
