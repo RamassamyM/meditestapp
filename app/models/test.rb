@@ -10,7 +10,7 @@ class Test < ApplicationRecord
   end
 
   def is_truemedicine(code)
-    if Truemedicine.where(codenumber: code)
+    if Truemedicine.find_by(codenumber: code)
       return true
     else
       return false
