@@ -51,7 +51,7 @@ medicine1 = Truemedicine.new({
     expiration_date: "blabla"
   })
 medicine2 = Truemedicine.new({
-    codenumber: '01034009309860801721030010G743',
+    codenumber: 'wdmh',
     country_of_sale: 'France',
     expiration_date: "blabla"
   })
