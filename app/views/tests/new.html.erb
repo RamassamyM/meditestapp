@@ -1,12 +1,18 @@
 <div class="row">
   <div class="">
     <%= simple_form_for @test do |f| %>
-    <%= f.input :test_type, label: false, as: :select do
+    <div class="hidden">
+          <%= f.input :test_type, label: false, as: :select do
   f.select :test_type, [ "datamatrix", "codebar", "codenumber" ], selected: @type, html: { class: 'collectionform'}
 end %>
+    </div>
       <%= f.input :codenumber, label: false, placeholder: "Enter 20 digits code", html: { class: 'codeform'} %>
 
       <%= f.submit "Test", class: "btn btn-primary", :wrapper => :nested %>
       <% end %>
   </div>
 </div>
+  <div class="bubble-right-block">
+    <%= link_to "Restart", root_path, class: "bubble bubble-button-yes" %>
+    <%= image_tag "user.png", class: "avatar" %>
+  </div>
