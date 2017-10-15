@@ -66,8 +66,21 @@
 
 
 .bubble-important {
-  border: 2px solid #ff1c4e;
+  border: 4px solid #ff1c4e;
   h3 {
     color: #414141;
+  }
+}
+
+.bubble-medicine-picture {
+  max-height: 150px;
+  max-width: 90%;
+}
+
+.bubble-medicine {
+  text-align: left;
+  p {
+    margin-top: 5px;
+    margin-bottom: 0px;
   }
 }

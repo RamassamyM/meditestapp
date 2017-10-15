@@ -4,6 +4,7 @@ class TestsController < ApplicationController
 
   def new
     @test = Test.new
+    @type = test_params[:test_type] if test_params[:test_type]
   end
 
   def create
@@ -17,10 +18,10 @@ class TestsController < ApplicationController
   end
 
   def show
-    @truemedicine = Truemedicine.find_by_codenumber(@test.codenumber)
-    if is_unique && is_truemedicine
+    @truemedicine = Truemedicine.find_by(codenumber: @test.codenumber)
+    if @test.is_unique(@test.codenumber) && @test.is_truemedicine(@test.codenumber)
       @result = "authentic"
-    elsif is_truemedicine
+    elsif @test.is_truemedicine(@test.codenumber)
       @result = "copy"
     else
       @result = "fake"

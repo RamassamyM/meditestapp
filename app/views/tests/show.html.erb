@@ -1,12 +1,32 @@
 <% case @result %>
 <% when "authentic" %>
-  <p>Assurez-vous que cette boîte n'a jamais été testée auparavant.</p>
-  <p>Votre médicament semble être authentique et provenir d'un vrai laboratoire</p>
+  <div class="bubble-left-block">
+    <div class="bubble bubble-important">
+      <%= image_tag "doctor.png", class: "bubble-image" %>
+      <h3>Our Expert advice :</h3>
+      <p>Your code is valid. Your drug is genuine</p>
+    </div>
+  </div>
   <%= render 'codes/show', truemedicine: @truemedicine %>
 <% when "copy" %>
-  <p>Assurez-vous que cette boîte n'a jamais été testée auparavant.</p>
+  <div class="bubble-left-block">
+    <div class="bubble bubble-important">
+      <%= image_tag "doctor.png", class: "bubble-image" %>
+      <h3>Our Expert advice :</h3>
+      <p>The code is in our database. <br> Alert : other patients have tested the same drug box. Therefore, there's a high risk that it is a fake medicine. Do not use this medicine. Contact your drug dealer.</p>
+    </div>
+  </div>
 <% when "fake" %>
-  <p>Assurez-vous que cette boîte n'a jamais été testée auparavant.</p>
+  <div class="bubble-left-block">
+    <div class="bubble bubble-important">
+      <%= image_tag "doctor.png", class: "bubble-image" %>
+      <h3>Our Expert advice :</h3>
+      <p>The code is not in our database. <br> Alert : there's a high risk that your drug is a fake one. Do not take any risk. Contact your pharmacist or drug dealer.</p>
+    </div>
+  </div>
 <% end %>
-
+<div class="bubble-right-block">
+  <%= link_to "Back", root_path, class: "bubble bubble-button-yes" %>
+  <%= image_tag "user.png", class: "avatar" %>
+</div>
 

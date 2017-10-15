@@ -1,13 +1,11 @@
-<% truemedicine.codenumber %>
-<% truemedicine.country_of_sale %>
-<% truemedicine.expiration_date %>
-<% truemedicine.lot.name  %>
-<% truemedicine.lot.name  %>
-<%  %>
-
-
-
-truemedicine.lot.name
-trumedicine.lot.lot_number
-truemedicine.lot.rcp_description
-trumedicine.lot.laboratory_name
+<div class="bubble-left-block">
+    <div class="bubble bubble-important bubble-medicine">
+      <p>Here are the informations I found about this drug :</p>
+      <p>Name : <%= truemedicine.lot.name %></p>
+      <p>Country of sale : <%= truemedicine.country_of_sale %></p>
+      <p>Expiracy date : <%= truemedicine.expiration_date %></p>
+      <p>Description : <%= truemedicine.lot.rcp_description %></p>
+      <p>Laboratory : <%= truemedicine.lot.laboratory %></p>
+      <%= image_tag "https://pharmacie-citypharma.fr/media/catalog/product/cache/1/image/600x600/9df78eab33525d08d6e5fb8d27136e95/s/p/spasfon_cp_2.png", class: "bubble-medicine-picture"%>
+    </div>
+  </div>
