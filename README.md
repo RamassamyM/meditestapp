@@ -1,1 +1,1 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+Rails app developped and deployed by Michael Ramassamy in 14 hours during the WDMH 2017 hackaton dor health tech project.
